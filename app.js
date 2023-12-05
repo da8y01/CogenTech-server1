@@ -4,6 +4,25 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mysql = require('mysql')
+const connection = mysql.createConnection({
+  // ToDo: save login data in safe place
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'mydb'
+})
+
+connection.connect()
+
+connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
+  if (err) throw err
+
+  console.log('The solution is: ', rows[0].solution)
+})
+
+connection.end()
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
