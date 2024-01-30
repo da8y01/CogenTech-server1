@@ -1,3 +1,4 @@
+require('dotenv').config()
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -9,8 +10,8 @@ const connection = mysql.createConnection({
   // ToDo: save login data in safe place
   host: 'localhost',
   user: 'root',
-  password: 'root',
-  database: 'mydb'
+  password: '',
+  database: 'cogentech1'
 })
 
 connection.connect()

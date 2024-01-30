@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('./cors');
-const Employees = require('../models/employees');
+// const Employees = require('../models/employees');
+const Employees = require('../models/workers');
 
 const employeeRouter = express.Router();
 
@@ -10,7 +11,7 @@ employeeRouter.use(bodyParser.json());
 employeeRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.cors, (req,res,next) => {
-    Employees.find({})
+    Employees.findAll({})
     .then((employees) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
