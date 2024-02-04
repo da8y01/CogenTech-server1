@@ -14,14 +14,11 @@ const Worker = sequelize.define('employees', {
     type: DataTypes.STRING,
     allowNull: false
   },
-//   employees_id: {
-//     type: DataTypes.INTEGER
-//     // allowNull defaults to true
-//   },
-//   subordinates: {
-//     type: Sequelize.ARRAY(Sequelize.INTEGER),
-//     defaultValue: [],
-//   }
+  version: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
+  },
 }, {
   // Other model options go here
   timestamps: true
